@@ -1,5 +1,5 @@
 {
   virtualisation.docker.enable = true;
   # TODO: username variable
-  users.extraGroups.docker.members = ["soooch"];
+  users.extraGroups.docker.members = ["miles"];
 }

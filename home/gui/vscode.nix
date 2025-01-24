@@ -36,13 +36,14 @@
           "discriminantHints"."enable" = "always";
           "implicitDrops"."enable" = true;
         };
+	"files.autoSave"= "afterDelay";
+        "files.autoSaveDelay"= 1000;
       };
 
       extensions = with pkgs.vscode-extensions; [
         rust-lang.rust-analyzer
         jnoortheen.nix-ide
         arrterian.nix-env-selector
-        github.copilot
       ];
     };
   };

@@ -3,10 +3,9 @@
     git = {
       enable = true;
 
-      userName = "Suchir Kavi";
-      userEmail = "suchirkavi@gmail.com";
+      userName = "Miles Conn";
+      userEmail = "milesjconn@gmail.com";
 
-      difftastic.enable = true;
       extraConfig = {
         merge.conflictstyle = "zdiff3";
       };

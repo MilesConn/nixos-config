@@ -2,6 +2,8 @@
   imports = [
     ./fzf.nix
     ./git.nix
+    ./ghostty.nix
+    ./zsh.nix
   ];
 
   home.packages = with pkgs; [
@@ -30,6 +32,7 @@
     (python3.withPackages (p: with p; [numpy pandas torch]))
 
     # Rust
+    rust-analyzer
     (rust-bin.selectLatestNightlyWith
       (toolchain:
         toolchain.default.override {

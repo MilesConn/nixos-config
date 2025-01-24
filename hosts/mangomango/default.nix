@@ -2,8 +2,7 @@
   imports = [
     # Include the results of the hardware scan.
     ../../modules/system.nix
-    ../../modules/gnome.nix
-    ../../modules/nvidia.nix
+    ../../modules/plasma.nix
     ../../modules/ssd.nix
     ../../modules/logitech.nix
     ../../modules/docker.nix
@@ -15,12 +14,16 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # disable integrated amd gpu (interfering with nvidia)
-  boot.kernelParams = ["module_blacklist=amdgpu"];
+  boot.kernelParams = ["i915.force_probe=7d45" "i915.enable_psr=0"];
+
+  boot.kernel.sysctl = {
+    "fs.inotify.max_user_watches" = 524288; # default: 8192
+  };
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
-  networking.hostName = "lovelace"; # Define your hostname.
+  networking.hostName = "mangomango"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -47,5 +50,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
